@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAMP Web App</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #1c1c1c, #2c2c2c);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+  }
+  header {
+    width: 100%;
+    padding: 20px;
+    background: #111;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #f0f0f0;
+  }
+  .server-info {
+    margin-top: 40px;
+    text-align: center;
+    background: #222;
+    padding: 20px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+  }
+  .server-info p {
+    margin: 10px 0;
+    font-size: 1.2rem;
+  }
+  .btn-refresh {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #f05a28;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #fff;
+    cursor: pointer;
+  }
+  .btn-refresh:hover {
+    background: #ff7b50;
+  }
+  footer {
+    margin-top: auto;
+    padding: 10px;
+    color: #888;
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+  <header>SAMP Web App</header>
+  <div class="server-info">
+    <p><strong>Servidor:</strong> MeuServidorSAMP</p>
+    <p><strong>IP:</strong> 123.456.789.000:7777</p>
+    <p><strong>Status:</strong> <span id="status">Offline</span></p>
+    <p><strong>Jogadores online:</strong> <span id="players">0</span></p>
+    <button class="btn-refresh" onclick="refreshStatus()">Atualizar</button>
+  </div>
+  <footer>Feito por Você - Estilo SAMP</footer>
+
+<script>
+function refreshStatus() {
+  // Aqui você pode colocar chamada real à API do servidor se houver
+  // Por enquanto, vamos simular
+  const online = Math.floor(Math.random() * 100); // jogadores aleatórios
+  const statusEl = document.getElementById('status');
+  const playersEl = document.getElementById('players');
+
+  if (online > 0) {
+    statusEl.textContent = 'Online';
+    playersEl.textContent = online;
+  } else {
+    statusEl.textContent = 'Offline';
+    playersEl.textContent = 0;
+  }
+}
+
+// Atualiza ao carregar a página
+refreshStatus();
+</script>
+</body>
+</html>
